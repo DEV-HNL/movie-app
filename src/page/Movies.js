@@ -5,7 +5,7 @@ import { fetcher, keyApi } from "../config";
 import MovieCard from "../components/moveList/MovieCard";
 const Movies = () => {
   const [dataMovie, setDataMovie] = useState([]);
-  const { data, error, isloading } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/popular?api_key=${keyApi}`,
     fetcher
   );

@@ -1,8 +1,6 @@
 import React from "react";
-import MovieCard from "../components/moveList/MovieCard";
 import "./style.scss";
 import MovieList from "../components/moveList/MovieList";
-import Header from "../components/layout/Header";
 const Home = () => {
   return (
     <div className="home">
