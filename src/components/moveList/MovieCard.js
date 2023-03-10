@@ -9,7 +9,7 @@ const MovieCard = ({ items }) => {
       <img src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt="" />
       <h2 className="movie__card--name">{title}</h2>
       <div className="movie__card--info">
-        <span>2014</span>
+        <span>{new Date().getFullYear(release_date)}</span>
         <span>{vote_average}</span>
       </div>
       <button

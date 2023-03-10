@@ -4,10 +4,9 @@ import useSWR from "swr";
 import "swiper/scss";
 import { fetcher, keyApi } from "../../config";
 import MovieCard from "./MovieCard";
-import { Navigate } from "react-router-dom";
 const MovieList = ({ type }) => {
   const [dataMovie, setDataMovie] = useState([]);
-  const { data, error, isloading } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${type}?api_key=${keyApi}`,
     fetcher
   );
