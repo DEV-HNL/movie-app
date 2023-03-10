@@ -15,7 +15,7 @@ const MovieCard = ({ items }) => {
       <button
         className="watch-now"
         onClick={() => {
-          navigate(`/movie/${id}`);
+          navigate(`/movie/info/${id}`);
         }}
       >
         Watch now!
