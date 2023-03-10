@@ -1,0 +1,15 @@
+:root {
+  --bg-color: #191b1f;
+  --text-color: #fff;
+  --themes-color: #ff515a;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: var(--bg-color);
+  font-family: "DM Sans", sans-serif;
+  overflow-y: overlay;
+}

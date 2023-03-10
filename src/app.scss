@@ -1,0 +1,22 @@
+.app {
+  .header {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 16px;
+    transition: all 0.25s ease;
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+      transition: all 0.25s ease;
+    }
+    .active {
+      transition: all 0.25s ease;
+      color: var(--themes-color);
+    }
+  }
+}
