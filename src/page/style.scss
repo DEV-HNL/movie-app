@@ -164,3 +164,129 @@
     gap: 15px;
   }
 }
+.movieinfo {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  color: #fff;
+  margin: 0 auto;
+  &__bg {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 200px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px 20px 0 0;
+      z-index: -1;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      $color: var(--bg-color);
+      background: linear-gradient(360deg, var(--bg-color), rgba(#191b1f, 0.1));
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0%;
+    transform: translateY(25%);
+  }
+  &__poster {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    img {
+      width: 200px;
+      object-fit: cover;
+      height: 250px;
+      border-radius: 10px;
+      box-shadow: rgba(255, 255, 255, 0.76) 0px 0px 4px;
+    }
+    &--rated {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      .rated {
+        border: 1px solid var(--themes-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+  &__info {
+    width: 100%;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &--header {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      span {
+        color: var(--text-color);
+        opacity: 0.6;
+        &:nth-child(n):not(:last-child) {
+          position: relative;
+          &::before {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--text-color);
+            right: -10px;
+            bottom: 50%;
+            transform: translate(50%, 50%);
+          }
+        }
+      }
+    }
+    &--date {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    &--watch {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      button:not(:first-child) {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-color);
+        background: transparent;
+        border: 1px solid var(--text-color);
+        cursor: pointer;
+        transition: all 0.25s ease;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
