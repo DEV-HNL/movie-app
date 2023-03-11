@@ -39,6 +39,10 @@ const Movies = () => {
 };
 const MovieNextPage = ({ nextPageArr, page, setPage }) => {
   const goPage = useNavigate();
+  const handlePrePage = () => {
+    setPage(page - 1);
+    goPage(`/movie/page-${page - 1}`);
+  };
   const handleNextPage = () => {
     setPage(page + 1);
     goPage(`/movie/page-${page + 1}`);
@@ -46,8 +50,20 @@ const MovieNextPage = ({ nextPageArr, page, setPage }) => {
   return (
     <div className="next-page">
       <ul>
+        {page > 1 ? (
+          <li onClick={handlePrePage} className="arrow">
+            {" "}
+            ←{" "}
+          </li>
+        ) : (
+          ""
+        )}
         {nextPageArr.map((items, index) => {
-          if (index >= page && index <= page + 4) {
+          if (
+            (page < 5 && index >= page - (page - 1) && index <= 5) ||
+            (page > 5 && index >= page - 3 && index <= page + 1) ||
+            (page === 5 && index >= page - 3 && index <= page + 1)
+          ) {
             return (
               <li
                 key={index}
@@ -62,7 +78,9 @@ const MovieNextPage = ({ nextPageArr, page, setPage }) => {
           }
           return null;
         })}
-        <li onClick={handleNextPage}> → </li>
+        <li onClick={handleNextPage} className="arrow">
+          →
+        </li>
       </ul>
     </div>
   );
