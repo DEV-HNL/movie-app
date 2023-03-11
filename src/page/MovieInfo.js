@@ -23,7 +23,9 @@ const MovieInfo = () => {
       <div className="movieinfo">
         <div className="movieinfo__bg">
           <img
-            src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original${
+              backdrop_path || "/jr8tSoJGj33XLgFBy6lmZhpGQNu.jpg"
+            }`}
             alt=""
           />
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Skeleton from "../loader/Skeleton";
 
 const MovieCard = ({ items }) => {
   const navigate = useNavigate();
@@ -25,3 +26,32 @@ const MovieCard = ({ items }) => {
 };
 
 export default MovieCard;
+export const MovieCardSkeleton = () => {
+  return (
+    <>
+      <div className="movie__card">
+        <Skeleton
+          width="100%"
+          height="250px"
+          radius="8px"
+          className="mb-5"
+        ></Skeleton>
+        <h2>
+          <Skeleton width="100%" height="20px"></Skeleton>
+        </h2>
+
+        <div className="movie__card--info">
+          <span>
+            <Skeleton width="50px" height="10px"></Skeleton>
+          </span>
+          <span>
+            <Skeleton width="30px" height="10px"></Skeleton>
+          </span>
+        </div>
+        <button>
+          <Skeleton width="100%" height="45px" radius="6px"></Skeleton>
+        </button>
+      </div>
+    </>
+  );
+};

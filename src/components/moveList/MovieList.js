@@ -3,10 +3,10 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import useSWR from "swr";
 import "swiper/scss";
 import { fetcher, keyApi } from "../../config";
-import MovieCard from "./MovieCard";
+import MovieCard, { MovieCardSkeleton } from "./MovieCard";
 const MovieList = ({ type }) => {
   const [dataMovie, setDataMovie] = useState([]);
-  const { data } = useSWR(
+  const { data, isLoading } = useSWR(
     `https://api.themoviedb.org/3/movie/${type}?api_key=${keyApi}`,
     fetcher
   );
@@ -15,8 +15,30 @@ const MovieList = ({ type }) => {
   }, [data]);
   return (
     <div>
+      {isLoading && (
+        <>
+          <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+          </Swiper>
+        </>
+      )}
       <Swiper grabCursor={"true"} slidesPerView={"auto"} spaceBetween={20}>
-        {dataMovie.length > 0 &&
+        {!isLoading &&
+          dataMovie.length > 0 &&
           dataMovie.map((items) => {
             return (
               <SwiperSlide key={items.id}>
