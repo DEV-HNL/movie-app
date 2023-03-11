@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MovieSearch = (props) => {
   const nodeRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <div className="movie__search">
@@ -12,7 +14,11 @@ const MovieSearch = (props) => {
       />
       <button
         className="movie__search--btn"
-        onClick={() => props.onClick(nodeRef.current.value)}
+        onClick={() => {
+          navigate("/movie");
+
+          props.onClick(nodeRef.current.value);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

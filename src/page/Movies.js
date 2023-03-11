@@ -13,7 +13,6 @@ const Movies = () => {
   const [searchValue, setSearchValue] = useState(null);
   const [dataMovie, setDataMovie] = useState([]);
   const handleGetData = (data) => {
-    console.log(data);
     setSearchValue(data);
   };
   const { data, isLoading } = useSWR(
