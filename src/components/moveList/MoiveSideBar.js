@@ -4,7 +4,9 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/scss";
 import { fetcher, keyApi } from "../../config";
 import Skeleton from "../loader/Skeleton";
+import { useNavigate } from "react-router-dom";
 const MoiveSideBar = () => {
+  const navigate = useNavigate();
   const [dataMovie, setDataMovie] = useState([]);
   const { data, isLoading } = useSWR(
     `https://api.themoviedb.org/3/movie/popular?api_key=${keyApi}`,
@@ -25,7 +27,6 @@ const MoiveSideBar = () => {
         {!isLoading &&
           dataMovie.length > 0 &&
           dataMovie.map((items, index) => {
-            console.log(items);
             return (
               <SwiperSlide key={items.id}>
                 <img
@@ -35,7 +36,12 @@ const MoiveSideBar = () => {
                 <div className="sidebar__content">
                   <h2 className="sidebar__name">{items.title}</h2>
                   <span className="sidebar__type">Adventure, Action...</span>
-                  <button className="sidebar-watch watch-now">
+                  <button
+                    className="sidebar-watch watch-now"
+                    onClick={() => {
+                      navigate(`/movie/info/${items.id}`);
+                    }}
+                  >
                     Watch now!
                   </button>
                 </div>

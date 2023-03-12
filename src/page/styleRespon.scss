@@ -30,6 +30,7 @@
   .movieinfo {
     &__content {
       flex-direction: column;
+      transform: translateY(20%);
     }
   }
 }
