@@ -1,21 +1,11 @@
 import React from "react";
 import "./style.scss";
 import MovieList from "../components/moveList/MovieList";
+import MoiveSideBar from "../components/moveList/MoiveSideBar";
 const Home = () => {
   return (
     <div className="home">
-      <div className="sidebar">
-        <img
-          src="https://genk.mediacdn.vn/139269124445442048/2020/4/29/1-15881472577741166483048.jpeg"
-          alt=""
-        />
-        <div className="sidebar__content">
-          <h2 className="sidebar__name">Avencher</h2>
-          <span className="sidebar__type">Adventure, Action...</span>
-          <button className="sidebar-watch watch-now">Watch now!</button>
-        </div>
-        <i className="fa-solid fa-arrow-right"></i>
-      </div>
+      <MoiveSideBar></MoiveSideBar>
       <div className="movie">
         <h2 className="movie__title">Now Playing</h2>
         <MovieList type={"now_playing"} />

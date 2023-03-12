@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Movies from "./page/Movies";
 import Main from "./components/layout/Main";
 import MovieInfo from "./page/MovieInfo";
+import "./page/styleRespon.scss";
 function App() {
   return (
     <div className="app">

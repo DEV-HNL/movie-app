@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 const MovieNextPage = ({ nextPageArr, page, setPage }) => {
   const goPage = useNavigate();
   const handlePrePage = () => {
+    window.scrollTo(0, 0);
     setPage(page - 1);
     goPage(`/movie/page-${page - 1}`);
   };
   const handleNextPage = () => {
+    window.scrollTo(0, 0);
+
     setPage(page + 1);
     goPage(`/movie/page-${page + 1}`);
   };
@@ -33,6 +36,8 @@ const MovieNextPage = ({ nextPageArr, page, setPage }) => {
                 key={index}
                 className={`${page === index ? "active" : ""}`}
                 onClick={() => {
+                  window.scrollTo(0, 0);
+
                   goPage(`/movie/page-${index}`);
                 }}
               >
